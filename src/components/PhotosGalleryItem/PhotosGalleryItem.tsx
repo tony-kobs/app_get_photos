@@ -5,9 +5,10 @@ import styles from "./PhotosGalleryItem.module.css";
 
 interface PhotoGalleryItemProps {
   photo: Photo;
+  onSelect: (photo: Photo) => void;
 }
 
-export default function PhotosGalleryItem({ photo }: PhotoGalleryItemProps) {
+export default function PhotosGalleryItem({ photo, onSelect }: PhotoGalleryItemProps) {
   return (
     <GridItem>
       <div
@@ -17,7 +18,7 @@ export default function PhotosGalleryItem({ photo }: PhotoGalleryItemProps) {
           borderColor: photo.avg_color,
         }}
       >
-        <img src={photo.src.large} alt={photo.alt} />
+        <img src={photo.src.large} alt={photo.alt} onClick={()=> onSelect(photo)} />
       </div>
     </GridItem>
   );
